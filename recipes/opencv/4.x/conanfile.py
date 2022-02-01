@@ -293,7 +293,7 @@ class OpenCVConan(ConanFile):
             # in 'if' block, get_target_property() produces an error
             if tools.Version(self.version) >= "4.4.0":
                 tools.replace_in_file(find_protobuf,
-                    'if(TARGET "${Protobuf_LIBRARIES}")',
+                                      'if(TARGET "${Protobuf_LIBRARIES}")',
                                       'if(FALSE)  # patch: disable if(TARGET "${Protobuf_LIBRARIES}")')
         if self.options.with_ade:
             ade_cmake = os.path.join(self._source_subfolder, "modules", "gapi",
@@ -592,11 +592,11 @@ class OpenCVConan(ConanFile):
         def ffmpeg():
             if self.options.get_safe("with_ffmpeg"):
                 return [
-                    "ffmpeg::avcodec",
-                    "ffmpeg::avfilter",
-                    "ffmpeg::avformat",
-                    "ffmpeg::avutil",
-                    "ffmpeg::swresample",
+                        "ffmpeg::avcodec",
+                        "ffmpeg::avfilter",
+                        "ffmpeg::avformat",
+                        "ffmpeg::avutil",
+                        "ffmpeg::swresample",
                         "ffmpeg::swscale" ]
             else:
                 return [ ]
